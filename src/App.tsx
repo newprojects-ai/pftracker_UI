@@ -1,20 +1,11 @@
-import './App.css'
-import { MainLayout } from './components/layout/MainLayout'
-import { SummaryCards } from './components/dashboard/SummaryCards'
-import { PortfolioCharts } from './components/dashboard/PortfolioCharts'
-import { HoldingsGrid } from './components/holdings/HoldingsGrid'
-import { DataImport } from './components/import/DataImport'
+import './index.css'
 
 function App() {
   return (
-    <MainLayout>
-      <h1 className="text-4xl font-bold mb-6">Dashboard</h1>
-      <div className="space-y-6">
-        <SummaryCards />
-        <PortfolioCharts />
-        <HoldingsGrid />
-        <DataImport />
-      </div>
-    </MainLayout>
+    <div className="min-h-screen bg-background text-foreground">
+      <h1 className="text-2xl font-bold">Portfolio Manager</h1>
+    </div>
   )
 }
+
+export default App
