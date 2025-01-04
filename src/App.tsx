@@ -1,10 +1,10 @@
 import { MainLayout } from "./components/layout/MainLayout"
-import { DashboardView } from "./views/DashboardView"
+import { HomeView } from "./views/HomeView"
 
 function App() {
   return (
     <MainLayout>
-      <DashboardView />
+      <HomeView />
     </MainLayout>
   )
 }
