@@ -20,7 +20,7 @@ export function DataImport() {
 
   return (
     <div className="rounded-lg border bg-card p-6">
-      <h2 className="text-lg font-semibold mb-4">Import Data</h2>
+      <h2 className="text-lg font-semibold mb-4">Import Transactions</h2>
       
       <div
         {...getRootProps()}

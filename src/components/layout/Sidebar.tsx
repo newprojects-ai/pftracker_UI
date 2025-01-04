@@ -1,9 +1,17 @@
-import { LayoutDashboard, PieChart, Upload, LineChart } from "lucide-react"
+import { LayoutDashboard, PieChart, Upload, LineChart, Calendar, Tags, BarChart, FileText, History, Settings, Activity, Bell } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const navigation = [
   { name: "Dashboard", href: "/", icon: LayoutDashboard, current: true },
   { name: "Holdings", href: "/holdings", icon: PieChart, current: false },
+  { name: "Themes", href: "/themes", icon: Tags, current: false },
+  { name: "Expiry Calendar", href: "/expiry-calendar", icon: Calendar, current: false },
+  { name: "Theme Analysis", href: "/theme-analysis", icon: BarChart, current: false },
+  { name: "Reports", href: "/reports", icon: FileText, current: false },
+  { name: "Import History", href: "/import-history", icon: History, current: false },
+  { name: "Market Data", href: "/market-data", icon: Activity, current: false },
+  { name: "Alert Center", href: "/alerts", icon: Bell, current: false },
+  { name: "Settings", href: "/settings", icon: Settings, current: false },
   { name: "Import Data", href: "/import", icon: Upload, current: false },
   { name: "Market Data", href: "/market", icon: LineChart, current: false },
 ]
