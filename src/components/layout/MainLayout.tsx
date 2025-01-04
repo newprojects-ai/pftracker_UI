@@ -1,5 +1,6 @@
 import { ReactNode } from "react"
 import { Navbar } from "./Navbar"
+import { Sidebar } from "./Sidebar"
 
 interface MainLayoutProps {
   children: ReactNode
@@ -7,11 +8,14 @@ interface MainLayoutProps {
 
 export function MainLayout({ children }: MainLayoutProps) {
   return (
-    <div className="relative min-h-screen bg-background">
+    <div className="min-h-screen bg-background">
       <Navbar />
-      <main className="container py-6">
-        {children}
-      </main>
+      <div className="flex">
+        <Sidebar />
+        <main className="flex-1 p-6">
+          {children}
+        </main>
+      </div>
     </div>
   )
 }

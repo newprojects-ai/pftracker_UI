@@ -1,60 +1,49 @@
-import { DollarSign, TrendingUp, TrendingDown, PieChart } from 'lucide-react'
+import { CircleDollarSign, TrendingUp, Percent } from "lucide-react"
+import { cn } from "@/lib/utils"
 
-interface SummaryCardProps {
-  title: string
-  value: string
-  icon: React.ReactNode
-  trend?: {
-    value: number
-    isPositive: boolean
-  }
-}
-
-function SummaryCard({ title, value, icon, trend }: SummaryCardProps) {
-  return (
-    <div className="rounded-lg border bg-card p-6">
-      <div className="flex items-center justify-between">
-        <div>
-          <p className="text-sm font-medium text-muted-foreground">{title}</p>
-          <h3 className="mt-2 text-3xl font-bold">{value}</h3>
-          {trend && (
-            <p className={`mt-1 text-sm ${trend.isPositive ? 'text-success' : 'text-danger'}`}>
-              {trend.isPositive ? '↑' : '↓'} {Math.abs(trend.value)}%
-            </p>
-          )}
-        </div>
-        <div className="text-muted-foreground">{icon}</div>
-      </div>
-    </div>
-  )
-}
+const summaryData = [
+  {
+    title: "Total Portfolio Value",
+    value: "£1,234,567",
+    icon: CircleDollarSign,
+    color: "border-blue-500",
+  },
+  {
+    title: "Day's Change",
+    value: "+£12,345",
+    icon: TrendingUp,
+    color: "border-green-500",
+  },
+  {
+    title: "Total Return",
+    value: "+15.4%",
+    icon: Percent,
+    color: "border-orange-500",
+  },
+]
 
 export function SummaryCards() {
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-      <SummaryCard
-        title="Total Portfolio Value"
-        value="$124,750.00"
-        icon={<DollarSign className="h-6 w-6" />}
-        trend={{ value: 2.5, isPositive: true }}
-      />
-      <SummaryCard
-        title="Day's Change"
-        value="$1,250.00"
-        icon={<TrendingUp className="h-6 w-6" />}
-        trend={{ value: 1.2, isPositive: true }}
-      />
-      <SummaryCard
-        title="Total P&L"
-        value="$12,450.00"
-        icon={<TrendingDown className="h-6 w-6" />}
-        trend={{ value: 11.5, isPositive: true }}
-      />
-      <SummaryCard
-        title="Number of Holdings"
-        value="15"
-        icon={<PieChart className="h-6 w-6" />}
-      />
+    <div className="grid gap-4 md:grid-cols-3">
+      {summaryData.map((card) => (
+        <div
+          key={card.title}
+          className={cn(
+            "p-6 rounded-lg border-l-4 bg-card",
+            card.color
+          )}
+        >
+          <div className="flex justify-between items-start">
+            <div>
+              <p className="text-sm font-medium text-muted-foreground">
+                {card.title}
+              </p>
+              <p className="text-2xl font-bold mt-2">{card.value}</p>
+            </div>
+            <card.icon className="h-5 w-5 text-muted-foreground" />
+          </div>
+        </div>
+      ))}
     </div>
   )
 }
